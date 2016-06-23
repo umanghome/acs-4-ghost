@@ -182,7 +182,7 @@ public class SimpleDictionary implements GhostDictionary {
 
             // If there are no words to consider
             if (wordsToConsider.size() == 0) {
-                selected = null;
+                selected = getAnyWordStartingWith(prefix);
             } else {
                 // Pick a random word from wordsToConsider
                 selected = wordsToConsider.get(random.nextInt(wordsToConsider.size()));
