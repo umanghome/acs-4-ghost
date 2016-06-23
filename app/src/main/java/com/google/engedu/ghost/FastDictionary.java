@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 public class FastDictionary implements GhostDictionary {
 
     private TrieNode root;
+    private static final int MIN_WORD_LENGTH = 4;
 
     public FastDictionary(InputStream wordListStream) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(wordListStream));
@@ -27,11 +28,11 @@ public class FastDictionary implements GhostDictionary {
 
     @Override
     public String getAnyWordStartingWith(String prefix) {
-        return root.getAnyWordStartingWith(prefix);
+        return root.getAnyWordStartingWith(root, prefix);
     }
 
     @Override
     public String getGoodWordStartingWith(String prefix, int whoWentFirst) {
-        return root.getGoodWordStartingWith(prefix);
+        return root.getGoodWordStartingWith(root, prefix, whoWentFirst);
     }
 }
