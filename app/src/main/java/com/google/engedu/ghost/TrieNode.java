@@ -83,6 +83,9 @@ public class TrieNode {
         // Get last node for string
         TrieNode lastNode = TrieNode.getLastNodeFor(root, s);
 
+        // Word is invalid
+        if (lastNode == null) return null;
+
         // Get all the words below the last node
         ArrayList<String> wordsBelow = lastNode.findWordsBelow();
 
